@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+
+  <title>슬라이딩</title>
+  <link rel="stylesheet" type="text/css" href="../slick/slick.css"/>
+  <link rel="stylesheet" type="text/css" href="../slick/slick-theme.css"/>
+  <meta charset="utf-8">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+            integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+            crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+            integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+            crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+<style>
+   /* *{
+            font-family: 'Gugi', cursive;
+        }*/
+
+/*이미지를 가운데에 표시해주는 기능!*/
+
+   .your-class {
+          width:600px;
+          height:380px;
+          display:block;
+          margin:0 auto;
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+
+    }
+
+
+    /*뒤로가기 화살표 기능! 이미지화살표나 부트스트랩 연동가능*!*/
+    .prev
+    {
+      position: absolute;
+          top: 30%;
+          left: 30%;
+      transform: translate(-50%, -50%);
+      background-color: rgba(0,0,0,0);
+      border-color: rgba(0,0,0,0);
+    }
+
+    .next
+    {
+      position: absolute;
+          top: 30%;
+          right: 30%;
+      transform: translate(-50%, -50%);
+      background-color: rgba(0,0,0,0);
+      border-color: rgba(0,0,0,0);
+ }
+
+
+}
+
+</style>
+
+  </head>
+
+  <body>
+
+  <div class="your-class" data-slick={"arrows": true} >
+  <img src="/image/1.gif" alt=""/>
+  <img src="/image/2.gif" alt=""/>
+  <img src="/image/3.gif" alt=""/>
+  <img src="/image/13.gif" alt=""/>
+  </div>
+
+	<button class="prev" id="aro1_prev">
+    <img src="/image/invi.png" alt=""/>
+    </button>
+	<button class="next" id="aro1_next">
+    <img src="/image/invi.png" alt=""/>
+    </button>
+
+  <script type="text/javascript" src="../slick/slick.min.js"></script>
+
+  <script type="text/javascript">
+
+</script>
+
+  <!--여기서부터 slick 기능-->
+  <script type="text/javascript">
+    $(document).ready(function() {
+      $('.your-class').slick({
+        autoplay: true,/*자동넘김*/
+        autoplaySpeed: 4000,/*자동넘김 스피드*/
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        arrows: true,/*화살표*/
+        prevArrow: $('#aro1_prev'),/*화살표모양위치정의*/
+        nextArrow: $('#aro1_next'),
+        swipe:true,
+
+      });
+
+      $(document).ready(function () {
+/*버튼안누르고 클릭하게 해주는기능 */
+        $('.prev').hover(function () {
+        $('.your-class').slick('slickPrev','swipe');
+        })
+        $('.next').hover(function () {
+        $('.your-class').slick('slickNext','swipe');
+        })
+
+      })
+    })
+/* 필터링 슬라이드 기능
+* var filtered = false;
+$('.filter-btn').on('click',function(){
+    $('.filter-btn').removeClass('active');
+    var filter = $(this).data('attribute');
+    if(filter=='all'){
+        $('.employees').slick('slickUnfilter');
+    }else{
+        $('.employees').slick('slickUnfilter').slick('slickFilter','.'+filter);
+    }
+    $(this).addClass('active');
+    filtered = true;
+});    */
+
+        </script>
+
+
+
+  </body>
+</html>
