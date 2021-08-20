@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Gugi&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dokdo&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Gugi&display=swap" rel="stylesheet">
+  <title>슬라이딩</title>
+  <link rel="stylesheet" type="text/css" href="../slick/slick.css"/>
+  <link rel="stylesheet" type="text/css" href="../slick/slick-theme.css"/>
+  <meta charset="utf-8">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+            integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+            crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+            integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+            crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+<style>
+   * {
+            font-family: 'Gugi', cursive;
+        }
+
+/*이미지를 가운데에 표시해주는 기능!*/
+    .your-class {
+          width:500px;
+          display:block;
+          margin:0 auto;
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          volume: 0.2%;
+
+    }
+    /*뒤로가기 화살표 기능! 이미지화살표나 부트스트랩 연동가능*/
+    .prev
+    {
+      position: absolute;
+      left: 50px;
+      top: 300px;
+    }
+    /*앞으로가기 화살표 기능! 부트스트랩 추가안되어있음주의*/
+    .next
+    {
+      position: absolute;
+      right: 50px;
+      top: 300px;
+ }
+
+</style>
+      <script>
+
+    function play_vol() {
+      let vol = $('#vol')
+      vol.volume = 0.2;
+      vol.loop = true;
+      vol.autoplay = true;
+      vol.controls
+
+    }
+  </script>
+  </head>
+
+  <body>
+
+  <div class="your-class">
+<!--div 사이에 이미지를 삽입-->
+<!--    <div> <img src="https://t1.daumcdn.net/cfile/blog/1206624550826D8810" alt=""></div>-->
+<!--    <div> <img src="https://post-phinf.pstatic.net/MjAyMDAzMTVfOTIg/MDAxNTg0MjEzMDMwODk2.zfY5M0MvoPzQITu05EL62SJ078h4imyWtBfRE8QDTTMg.L7mzDGgSem_vOpD9Rs9y2RIjbJc9r_QnzE9xCmmnu1Ug.JPEG/pikachu-00.jpg?type=w1200" alt=""></div>-->
+<!--    <div> <img src="https://www.puzzlesarang.com/shop/data/goods/1535017927683m0.jpg" alt=""></div>-->
+  <!--class="auto_move" onloadstart="play_vol()"-->
+    <video id = "vol" src="/image/333.mp4"
+           autoplay controls loop width="auto" height="auto" onloadstart="play_vol()">
+    </video>
+
+  <img src="/image/1.gif" alt="" />
+  <img src="/image/2.gif" alt="" />
+  <img src="/image/3.gif" alt="" />
+  <img src="/image/13.gif" alt="" />
+
+  </div>
+  <!--버튼-->
+	<button class="prev" id="aro1_prev">이전</button>
+	<button class="next" id="aro1_next">다음</button>
+
+  <script type="text/javascript" src="../slick/slick.min.js"></script>
+<!--여기서부터 slick 기능-->
+  <script type="text/javascript">
+    $(document).ready(function() {
+
+      play_vol();
+      $('.your-class').slick({
+        slidesToShow: 1,/*한페이지에 보여줄 슬라이드 갯수*/
+        slidesToScroll: 1,/*한번에 스크롤할 슬라이드 갯수*/
+        autoplay: true,/*자동넘김*/
+        autoplaySpeed: 4000,/*자동넘김 스피드*/
+        arrows: true,/*화살표*/
+        pauseOnHover: true,/*마우스를 올려놓으면 멈춤*/
+        prevArrow: $('#aro1_prev'),/*화살표모양위치정의*/
+        nextArrow: $('#aro1_next'),
+        infinite: true,/*무한반복*/
+
+
+      });
+      /*$('.auto_move').on('afterChange', function (event, slick, currentSlide, nextSlide) {
+        var vid = $(slick.$slides[currentSlide]).find('iframe');
+        if (vid.length > 0) {
+          $('.auto_move').$(slick.$slides[nextSlide]);
+          $(vid).get(0).play();
+
+          }
+        */
+
+
+
+
+
+
+
+
+        /* 비디오 자동재생후 넘겨주는 기능이라는데...
+
+('.auto_move').on('afterChange', function (event, slick, currentSlide) {
+        var vid = $(slick.$slides[currentSlide]).find('iframe');
+        if (vid.length > 0) {
+          $('.auto_move').slick('slickPlay');
+          $(vid).get(0).play();
+
+
+        }
+      })
+
+  $('iframe').on('ended', function() {
+    console.log('Video Complete')
+    $slider.slick('slickPlay');
+  });
+});
+*/
+
+      });
+
+
+  </script>
+
+  </body>
+</html>
