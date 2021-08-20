@@ -1,13 +1,42 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="styles.css" />
-    <title>이게 먹고 싶어질거야</title>
+    <meta name="keyword" content="오늘뭐먹지" />
+    <meta name="description" content="음식 메뉴추천" />
+    <meta name="author" content="yeogiro5jo" />
+
+    <!-- sns Share -->
+    <meta property="og:url" content="https://eat-this.netlify.app" />
+    <meta property="og:title" content="오늘 뭐 먹지? 오늘 이거 먹어!" />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="img/mobile.jpg" />
+    <meta
+      property="og:description"
+      content="오늘 메뉴가 고민된다면 추천해드려요!"
+    />
+
+    <!-- favicon -->
+    <link rel="shortcut icon" href="img/favicon.ico" />
+    <link rel="apple-touch-icon-precomposed" href="img/favicon.ico" />
+
+    <!-- css -->
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="reset.css" />
+
+    <title>먹고 싶어질거야</title>
   </head>
+
   <body>
+    <h1 class="title__left">오늘 뭐 먹지?<br />고민된다면</h1>
+    <figure class="swing">
+      <img src="img/pocketwatch.png" />
+      <div class="food"></div>
+    </figure>
+    <h1 class="title__right">오늘 이거 먹어!<br />먹고 싶어질거야</h1>
+
     <script src="app.js"></script>
   </body>
 </html>
