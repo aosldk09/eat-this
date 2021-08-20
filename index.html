@@ -23,20 +23,39 @@
     <link rel="apple-touch-icon-precomposed" href="img/favicon.ico" />
 
     <!-- css -->
-    <link rel="stylesheet" href="style.css" />
-    <link rel="stylesheet" href="reset.css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="css/reset.css" />
+    <link rel="stylesheet" href="css/default.css" />
+    <link rel="stylesheet" href="css/main.css" />
 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <title>먹고 싶어질거야</title>
   </head>
 
   <body>
-    <h1 class="title__left">오늘 뭐 먹지?<br />고민된다면</h1>
-    <figure class="swing">
-      <img src="img/pocketwatch.png" />
-      <div class="food"></div>
-    </figure>
-    <h1 class="title__right">오늘 이거 먹어!<br />먹고 싶어질거야</h1>
+    <div class="container">
+      <!-- Main Page -->
+      <section id="main">
+        <p class="main__title h1 col-4">오늘 뭐 먹지?<br />고민된다면</p>
+        <figure class="main__swing col-4">
+          <img src="img/01.png" class="img-fluid" />
+          <!--음식사진 넣는 부분
+        <div class="main__swing-food img-fluid"></div>
+     -->
+        </figure>
+        <p class="main__title h1 col-4">오늘 이거 먹어!<br />먹고 싶어질거야</p>
+      </section>
 
-    <script src="app.js"></script>
+      <!-- Result Page-->
+      <section id="result"></section>
+
+      <!-- JS -->
+      <script src="app.js"></script>
+    </div>
   </body>
 </html>

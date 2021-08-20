@@ -1,0 +1,30 @@
+html,
+body {
+  width: 100%;
+  height: 100%;
+  margin: 0px;
+}
+
+body {
+  display: block;
+  justify-content: center;
+  align-items: center;
+}
+
+.bang {
+  width: 500px;
+  height: 500px;
+  background-image: url("img/pngwing.com.png");
+  background-size: cover;
+  background-position: center;
+  -webkit-animation: rotation 5s infinite linear;
+}
+
+@-webkit-keyframes rotation {
+  from {
+    -webkit-transform: rotate(0deg);
+  }
+  to {
+    -webkit-transform: rotate(359deg);
+  }
+}
