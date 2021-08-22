@@ -30,32 +30,40 @@
       crossorigin="anonymous"
     />
     <link rel="stylesheet" href="css/reset.css" />
-    <link rel="stylesheet" href="css/default.css" />
     <link rel="stylesheet" href="css/main.css" />
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <style>
+      @font-face {
+        font-family: "BMHANNAPro";
+        src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_seven@1.0/BMHANNAPro.woff")
+          format("woff");
+        font-weight: normal;
+        font-style: normal;
+      }
+    </style>
+
     <title>먹고 싶어질거야</title>
   </head>
 
   <body>
-    <div class="container">
-      <!-- Main Page -->
-      <section id="main">
-        <p class="main__title h1 col-4">오늘 뭐 먹지?<br />고민된다면</p>
-        <figure class="main__swing col-4">
-          <img src="img/01.png" class="img-fluid" />
-          <!--음식사진 넣는 부분
-        <div class="main__swing-food img-fluid"></div>
-     -->
-        </figure>
-        <p class="main__title h1 col-4">오늘 이거 먹어!<br />먹고 싶어질거야</p>
-      </section>
+    <!--splash-->
+    <span id="splash-background"></span>
+    <span id="splash-circle">
+      <img src="img/splash.png" />
+    </span>
 
-      <!-- Result Page-->
-      <section id="result"></section>
+    <!--clock-->
+    <figure class="swing">
+      <img src="img/pocketwatch.png" class="img-fluid" />
+      <div class="food img-fluid"></div>
+    </figure>
 
-      <!-- JS -->
-      <script src="app.js"></script>
-    </div>
+    <!-- title -->
+    <h1 class="title title-left">오늘 뭐 먹지?<br /><br />고민된다면</h1>
+    <h1 class="title title-right">
+      오늘 이거 먹어!<br /><br />먹고 싶어질거야
+    </h1>
+
+    <!-- JS -->
   </body>
 </html>
