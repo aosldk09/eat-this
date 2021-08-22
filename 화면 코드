@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <title>이거먹어</title>
+    <link rel="stylesheet" type="text/css" href="static/slick-1.8.1/slick/slick.css"/>
+    <link rel="stylesheet" type="text/css" href="static/slick-1.8.1/slick/slick-theme.css"/>
+    <meta charset="utf-8">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+            integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+            crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+            integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+            crossorigin="anonymous"></script>
+    <script type="text/javascript" src="static/slick-1.8.1/slick/slick.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <!--구글폰트-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Black+And+White+Picture&family=Gugi&display=swap"
+          rel="stylesheet">
+    <style>
+        * {
+            font-family: 'Gugi', cursive;
+        }
+
+        body {
+            background-image: url("/static/ogimage.png");
+            background-position: center;
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+
+        .item {
+            width: 800px;
+            height: 800px;
+            color: white;
+            margin: 300px 0px 0px 0px;
+            padding-left: 50px;
+            position: relative;
+            border-radius: 10px;
+            top: 40%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+
+        }
+
+
+        /*뒤로가기 화살표 기능! 이미지화살표나 부트스트랩 연동가능*!*/
+        .prev {
+            position: fixed;
+            width: 150px;
+            height: 400px;
+            top: 50%;
+            left: 32%;
+            transform: translate(-50%, -50%);
+            background-color: rgba(0, 0, 0, 0);
+            border-color: rgba(0, 0, 0, 0);
+
+        }
+
+        .next {
+            position: fixed;
+            width: 150px;
+            height: 400px;
+            top: 50%;
+            right: 18.5%;
+            transform: translate(-50%, -50%);
+            background-color: rgba(0, 0, 0, 0);
+            border-color: rgba(0, 0, 0, 0);
+
+
+        }
+
+        .scale-up-hor-center {
+            animation: scale-up-hor-center 0.4s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+
+            width: 350px;
+            height: 50%;
+            margin-top: 10px;
+
+
+        }
+
+        @keyframes scale-up-hor-center {
+            0% {
+                transform: scaleX(0.4);
+            }
+            100% {
+                transform: scaleX(1);
+            }
+        }
+
+
+    </style>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('.item').slick({
+                autoplay: true,/*자동넘김*/
+                autoplaySpeed: 10000,/*자동넘김 스피드*/
+                slidesToShow: 1,
+                slidesToScroll: 1,
+                arrows: true,/*화살표*/
+                prevArrow: $('#aro1_prev'),/*화살표모양위치정의*/
+                nextArrow: $('#aro1_next'),
+                swipe: true,
+                pauseOnHover: true,
+
+            });
+
+            $(document).ready(function () {
+                /*버튼안누르고 클릭하게 해주는기능 */
+                $('.prev').hover(function () {
+                    $('.item').slick('slickPrev', 'swipe');
+                })
+                $('.next').hover(function () {
+                    $('.item').slick('slickNext', 'swipe');
+                })
+
+            })
+        })
+
+    </script>
+
+</head>
+
+<body>
+<!--이미지를 여기에-->
+<div class="scale-up-hor-center">
+    <div class="card-body">
+        <h5 class="card-title" style="font-size: 30px; text-align: left">오늘같이 <span style="color: cadetblue">"쾌청"</span>하고
+        </h5>
+        <p class="card-text" style="font-size: 40px; text-align: right"><span style="color:royalblue">"강풍"</span> 인 날에는
+        </p>
+        <p class="card-text" style="font-size: 25px;">이걸 먹어야 해...!</p>
+        <a href="#" class="btn btn-primary">난다른거!</a>
+    </div>
+</div>
+
+<div class="item">
+    <img src="/static/소곱창.gif" alt=""/>
+    <img src="/static/돈까스.gif" alt=""/>
+    <img src="/static/곱창전골.gif" alt=""/>
+</div>
+
+<button type=button class="prev" id="aro1_prev">
+    <img src="/static/invi.png" alt=""/>
+</button>
+<button type=button class="next" id="aro1_next">
+    <img src="/static/invi.png" alt=""/>
+</button>
+
+
+</body>
+</html>
