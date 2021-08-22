@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="kr">
 
   <head>
 
@@ -20,16 +20,23 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Black+And+White+Picture&family=Gugi&display=swap" rel="stylesheet">
-<style>
+<!--부트스트랩 날씨아이콘-->
+<link type="text/css" rel="stylesheet" href="경로/weather-icons.min.css">
+
+    <!--CSS-->
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+<!--JS-->
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+    <style>
    *{
         font-family: 'Gugi', cursive;
         }
 
     body {
         background-color: floralwhite;
-        background-image: url("/image/background.jpg");
         background-position: center top;
-        background-attachment: fixed;
+        background-image: url("/image/background.jpg");
+
     }
 
    .your-class {
@@ -37,20 +44,21 @@
           height:50%;
           display:block;
           margin:0 auto;
-          position: fixed;
+          position: absolute;
           top: 40%;
           left: 50%;
           transform: translate(-50%, -50%);
           border-radius: 10px;
+          /*over-flow: hidden */
 
     }
 
 
-    /*뒤로가기 화살표 기능! 이미지화살표나 부트스트랩 연동가능*!*/
+    /*뒤로가기 화살표 기능! 투명버튼 이미지화살표나 부트스트랩 연동가능*!*/
     .prev
     {
-      position: fixed;
-          width:150px;
+      position: absolute;
+          width:120px;
           height:400px;
           top: 40%;
           left: 35%;
@@ -62,8 +70,8 @@
 
     .next
     {
-      position: fixed;
-          width:150px;
+      position: absolute;
+          width:120px;
           height:400px;
           top: 40%;
           right: 30%;
@@ -71,11 +79,42 @@
       background-color: rgba(0,0,0,0);
       border-color: rgba(0,0,0,0);
 
-
  }
-    .scale-up-hor-center {
-	animation: scale-up-hor-center 0.4s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+    /*숨겨진버튼클래스*/
+    .fade-in {
+        position: absolute;
+        top: 20%;
+        right: 15%;
+        height:256px;
+        width: 256px;
 
+        border-color: rgba(0,0,0,0);
+        background-color: rgba(0,0,0,0);
+        background-image: url("https://w.namu.la/s/bac27db9a2c171546b87246f835825ff139c7fcdf39c237476adbe5883619d5bdb342f571c89ec2053902919f4a4425b3c69eab1ed90a029b90f60059e2084cee6c94a3fed71d8973bf37b91df061e1c9e868d382af8f6b0291bdd0db7c75177");
+
+
+
+
+        animation: fade-in 13s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+}
+
+          @keyframes tilt-in-fwd-tr {
+        0% {
+          transform: rotateY(20deg) rotateX(35deg) translate(300px, -300px) skew(-35deg, 10deg);
+          opacity: 0;
+        }
+        100% {
+          transform: rotateY(0) rotateX(0deg) translate(0, 0) skew(0deg, 0deg);
+          opacity: 1;
+        }
+      }
+
+
+
+    /*카드에 애니메이션 넣기*/
+    .tracking-in-expand-fwd {
+	-webkit-animation: tracking-in-expand-fwd 10s cubic-bezier(0.215, 0.610, 0.355, 1.000) both;
+	        animation: tracking-in-expand-fwd 5s cubic-bezier(0.215, 0.610, 0.355, 1.000) both;
       width:350px;
       height:50%;
       margin-left: 10%;
@@ -84,44 +123,90 @@
 
 }
 
- @keyframes scale-up-hor-center {
+ @keyframes fade-in {
   0% {
-    transform: scaleX(0.4);
+    opacity: 0;
   }
   100% {
-    transform: scaleX(1);
+    opacity: 1;
   }
+}
+
+   .typing-txt{
+   position: absolute;
+   display: block;
+   height: 40px;
+   overflow: hidden;
+   animation: typingAni 4s steps(30, end) 1;
+
+     top: 10%;
+   left:  58%;
+}
+
+  .typing-txt::after {
+     position: absolute;
+     display: block;
+     content: "";
+     width: 40px;
+     height: 40px;
+     top: 3px;
+     right: 0;
+   }
+
+
+
+@keyframes typingAni {
+  0%{width:0%}
+  100%{width: 150px};
+}
+@keyframes cursor{
+  0%{opacity:0;}
+  50%{opacity:1;}
+  100%{opacity:0;}
 }
 
 
 </style>
 
   </head>
+<!--작동이안됨 ㅜㅜ-->
+  <body onresize="parent.resizeTo(500,400)" onload="parent.resizeTo(500,400)">
 
-  <body>
 <!--이미지를 여기에-->
-<div class="scale-up-hor-center">
+<div class="tracking-in-expand-fwd">
   <div class="card-body">
     <h5 class="card-title" style="font-size: 30px; text-align: left">오늘같이 <span style="color: cadetblue">"쾌청"</span>하고</h5>
     <p class="card-text" style="font-size: 40px; text-align: right"><span style="color:royalblue">"강풍"</span> 인 날에는</p>
     <p class="card-text" style="font-size: 25px;">이걸 먹어야 해...!</p>
-    <a href="#" class="btn btn-primary">난다른거!</a>
   </div>
 </div>
 
   <div class="your-class">
-  <img src="/image/333gi.gif" alt=""/>
-  <img src="https://lh3.googleusercontent.com/pw/AM-JKLXRPEDDAPt606Z8clvWtwGf2eVh37k_wFWVDRGo6VL9STak9nWb--flDORkdWYF95l4GDntz6hSgY2890WqIrwdMj6LDZ9MZPlE1N4VneT8-B6YVXwidZmbQOW6QxIZ-Nz3RZem46757GFJIfjF743O=w600-h451-no?authuser=0" alt=""/>
-  <img src="/image/333gio.gif" alt=""/>
-  <img src="/image/13.gif" alt=""/>
+  <img data-lazy src="https://lh3.googleusercontent.com/pw/AM-JKLXBeQN_ppfMS9QVEamGqJvhDWTNpHJnuSCjhjFs-oX9KSAEj2zl2FMwUKYqsAl6gS60bH_xjxGC7WSCYesl9O0WTlTfzUY5SBsk6_w0QzZHCgorF5P76TFggY6KsVb9KEXXEwfX4UcGxNez2jpVcAdO=w449-h337-no?authuser=0" alt=""/>
+  <img data-lazy src="https://lh3.googleusercontent.com/pw/AM-JKLXRPEDDAPt606Z8clvWtwGf2eVh37k_wFWVDRGo6VL9STak9nWb--flDORkdWYF95l4GDntz6hSgY2890WqIrwdMj6LDZ9MZPlE1N4VneT8-B6YVXwidZmbQOW6QxIZ-Nz3RZem46757GFJIfjF743O=w600-h451-no?authuser=0" alt=""/>
+  <img data-lazy src="https://lh3.googleusercontent.com/pw/AM-JKLUJdHcLIIgmaQomJ27iiWoZwM4j9itgfYdPA870sFZeCz16M_jqE4aF5FB5A8uK6QaW2LlDxbWqs7Fow2umK-BM2V-qas673lTwg7Lef8aqrFXWt4801--LpGrAIDQJK-kzpoC862D32yHVsnttNkEW=w450-h337-no?authuser=0" alt=""/>
+  <img data-lazy src="https://lh3.googleusercontent.com/pw/AM-JKLV6OD-3zSU3ccB4lbs8MSgd6zQlEcwIv9Or0g9OUjS5fmbbTQzh2ewYg1APMmZH-TgSXaBaqID1Q5Ry3NfGuUHGysGnwEFQjWTub9i-8RfsDl4G44JGRJnfTFIv70rxkNVPlLtgq1LVQCTS0woQsaIT=w450-h337-no?authuser=0" alt=""/>
   </div>
 
 	<button type=button class="prev" id="aro1_prev">
-    <img src="/image/invi.png" alt=""/>
+    <img src="https://lh3.googleusercontent.com/pw/AM-JKLUkNAbCHM4QWyG4_8bN6S2K9k5NGbD7R0ISNnKYD3jfWTqEoGGp5PEVuv1wl53erZGUQbsR6pLtrxyUVVN2w9-3yD_o01dVdXy86WT9ONvaiPsDkQW90thVn3olT1PNaRsTmIHPXTY_jp8n4taElaQ8" alt=""/>
     </button>
 	<button type=button class="next" id="aro1_next">
-    <img src="/image/invi.png" alt=""/>
+    <img src="https://lh3.googleusercontent.com/pw/AM-JKLUkNAbCHM4QWyG4_8bN6S2K9k5NGbD7R0ISNnKYD3jfWTqEoGGp5PEVuv1wl53erZGUQbsR6pLtrxyUVVN2w9-3yD_o01dVdXy86WT9ONvaiPsDkQW90thVn3olT1PNaRsTmIHPXTY_jp8n4taElaQ8" alt=""/>
     </button>
+
+    <button class="fade-in" id="btnshow" onclick=""></button>
+      <script> $('#btnshow').hide()</script>
+
+<div class="typing-txt">
+    <p><span style="font-size: 28px; color: plum">"칼칼한 부대찌개"</span></p>
+  </div>
+
+
+
+
+
+
   <script type="text/javascript" src="../slick/slick.min.js"></script>
 
   <script type="text/javascript">
@@ -133,7 +218,7 @@
     $(document).ready(function() {
       $('.your-class').slick({
         autoplay: true,/*자동넘김*/
-        autoplaySpeed: 15000,/*자동넘김 스피드*/
+        autoplaySpeed: 12000,/*자동넘김 스피드*/
         slidesToShow: 1,
         slidesToScroll: 1,
         arrows: true,/*화살표*/
@@ -141,20 +226,44 @@
         nextArrow: $('#aro1_next'),
         swipe:true,
         pauseOnHover: true,
+        fade: true,
+        infinite: true,
+
 
       });
 
       $(document).ready(function () {
 /*버튼안누르고 클릭하게 해주는기능 */
         $('.prev').hover(function () {
-        $('.your-class').slick('slickPrev','swipe');
+        $('.your-class').slick('slickPrev','slide');
         })
         $('.next').hover(function () {
-        $('.your-class').slick('slickNext','swipe');
+        $('.your-class').slick('slickNext','slide');
         })
 
       })
     })
+
+
+        setTimeout(function() {
+           // 뒤에숫자가 타이머!
+           if(confirm("아직 망설여지나요?")) {
+              $('#btnshow').show();
+            } else {
+             setTimeout(() => {if(confirm("혹시 새로운 가능성을 찾고 있나요?")) {
+              $('#btnshow').show();
+             } else {setTimeout(() =>{alert("그냥 드세요!")}, 20000)
+             }}, 20000)
+
+           }
+           }, 20000);
+
+
+
+
+
+
+
 /* 필터링 슬라이드 기능
 * var filtered = false;
 $('.filter-btn').on('click',function(){
@@ -169,7 +278,10 @@ $('.filter-btn').on('click',function(){
     filtered = true;
 });    */
 
+
+
         </script>
+
 
 
 
