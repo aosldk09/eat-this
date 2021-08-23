@@ -1,0 +1,35 @@
+body {
+  display: flex;
+  height: 100vh;
+  align-items: center;
+  justify-content: center;
+  font-family: "BMHANNAPro";
+  overflow: hidden;
+  background: radial-gradient(#4e0061, black) fixed;
+}
+
+.circular-text {
+  color: white;
+  font-size: 25px;
+  animation: rotate 10s linear infinite;
+  transform-origin: center;
+}
+
+@keyframes rotate {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.rotate {
+  width: 15%;
+  position: absolute;
+  animation: rotate_image 1.8s linear infinite;
+  transform-origin: 50% 50%;
+}
+
+@keyframes rotate_image {
+  100% {
+    transform: rotate(360deg);
+  }
+}

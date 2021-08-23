@@ -161,10 +161,12 @@ body {
 
 .title-left {
   left: 5%;
+  text-align: center;
 }
 
 .title-right {
   right: 5%;
+  text-align: center;
 }
 
 .btn {
