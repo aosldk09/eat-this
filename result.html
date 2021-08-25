@@ -1,10 +1,56 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+
+    <!-- favicon -->
+    <link rel="shortcut icon" href="img/favicon.ico" />
+    <link rel="apple-touch-icon-precomposed" href="img/favicon.ico" />
+
+    <!-- css -->
+    <link rel="stylesheet" href="css/result.css" />
+
+    <!--font-->
+    <style>
+      @font-face {
+        font-family: "BMHANNAPro";
+        src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_seven@1.0/BMHANNAPro.woff")
+          format("woff");
+        font-weight: normal;
+        font-style: normal;
+      }
+    </style>
+
+    <title>먹고 싶지?</title>
   </head>
-  <body></body>
+  <body>
+    <section class="result">
+      <!-- slider -->
+      <div class="slider">
+        <div class="slide active"><img src="img/jokbal01.gif" /></div>
+        <div class="slide"><img src="img/jokbal02.gif" /></div>
+        <div class="slide"><img src="img/jokbal03.gif" /></div>
+        <div class="slide"><img src="img/jokbal04.gif" /></div>
+        <div class="slide"><img src="img/jokbal05.gif" /></div>
+      </div>
+
+      <!-- controls -->
+      <div class="controls">
+        <div class="prev"><i class="fas fa-chevron-left"></i></div>
+        <div class="next"><i class="fas fa-chevron-right"></i></div>
+      </div>
+
+      <!-- indicators -->
+      <div class="indicator"></div>
+    </section>
+
+    <script src="script.js"></script>
+    <script
+      src="https://kit.fontawesome.com/6478f529f2.js"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+  <script src="js/slider.js"></script>
 </html>
