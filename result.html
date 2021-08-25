@@ -10,7 +10,11 @@
     <link rel="apple-touch-icon-precomposed" href="img/favicon.ico" />
 
     <!-- css -->
+    <link rel="stylesheet" href="css/reset.css" />
     <link rel="stylesheet" href="css/result.css" />
+    <link rel="stylesheet" href="css/loading.css" />
+    <link rel="stylesheet" href="css/slider.css" />
+    <link rel="stylesheet" href="css/likeit.css" />
 
     <!--font-->
     <style>
@@ -26,7 +30,8 @@
     <title>먹고 싶지?</title>
   </head>
   <body>
-    <section class="result">
+    <h1 class="food_name">오늘같은 날엔 "족발"!</h1>
+    <div id="slider_place">
       <!-- slider -->
       <div class="slider">
         <div class="slide active"><img src="img/jokbal01.gif" /></div>
@@ -44,13 +49,45 @@
 
       <!-- indicators -->
       <div class="indicator"></div>
-    </section>
+    </div>
 
+    <!-- Likeit -->
+    <div class="likeit_layer">
+      <div class="likeit_list tasty">
+        <a class="likeit_list_btn" href="#">
+          <img src="img/tasty.png" />
+          <span class="likeit_list_text">오늘은 이거다!</span>
+          <span class="likeit_list_count">0</span>
+        </a>
+      </div>
+      <div class="likeit_list bad">
+        <a class="likeit_list_btn" href="#">
+          <img src="img/bad.png" />
+          <span class="likeit_list_text">다른거 먹을래요</span>
+          <span class="likeit_list_count">0</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- button -->
+    <form class="result_btn">
+      <button class="btn restart">다른 음식 추천 해주세요</button>
+      <button class="btn share"><i class="far fa-share-square"></i></button>
+    </form>
+
+    <!-- Loading Screen -->
+    <div id="loading-screen">
+      <div class="circular-text">는 이게 먹고싶다 ~ 너는 이게 땡긴다 ~ 너</div>
+      <img src="img/pngwing.com.png" class="rotate" />
+    </div>
+
+    <!-- JS -->
     <script src="script.js"></script>
     <script
       src="https://kit.fontawesome.com/6478f529f2.js"
       crossorigin="anonymous"
     ></script>
   </body>
+  <script src="js/loading.js"></script>
   <script src="js/slider.js"></script>
 </html>

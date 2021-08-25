@@ -1,0 +1,35 @@
+.likeit_layer {
+  position: absolute;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 0% 3%;
+  font-size: 5vh;
+}
+
+.likeit_list {
+}
+
+.likeit_list img {
+  width: 8vw;
+  height: 14vh;
+  margin-bottom: 10%;
+}
+
+.likeit_list_btn {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  color: #000;
+  width: 100%;
+}
+
+.likeit_list_btn:hover {
+  transform: scale(1.1);
+}
+
+.likeit_list_text {
+  margin-bottom: 5%;
+}

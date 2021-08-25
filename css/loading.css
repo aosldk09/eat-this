@@ -1,13 +1,29 @@
 /* Loading 화면에 영향을 주는 CSS */
 
-body {
-  display: flex;
+#loading-screen {
+  position: absolute;
   height: 100vh;
+  width: 100vw;
+  top: 0;
+  display: flex;
   align-items: center;
   justify-content: center;
   font-family: "BMHANNAPro";
   overflow: hidden;
   background: radial-gradient(#4e0061, black) fixed;
+  animation: hideLodingScreen 0.5s ease-in-out forwards;
+  animation-delay: 2.5s;
+  z-index: 3;
+}
+
+@keyframes hideLodingScreen {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+    visibility: hidden;
+  }
 }
 
 .circular-text {
