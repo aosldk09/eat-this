@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    @charset "utf-8";
+    @import url('https://fonts.googleapis.com/css?family=Nanum+Gothic');
+    /*RESET*/
+    
+    * {
+        margin: 0;
+        padding: 0;
+    }
+    
+    body {
+        font: 17px 'Nanum Gothic', sans-serif;
+    }
+    
+    a {
+        text-decoration: none;
+        color: #404040;
+    }
+    
+    li {
+        list-style: none;
+    }
+    /*BODY*/
+    /*팝업창*/
+    
+    #popup {
+        display: none;
+        /*숨기기*/
+        position: fixed;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.9);
+    }
+    
+    #popmenu {
+        position: relative;
+        left: 50%;
+        top: 30%;
+        transform: translate(-50%, -50%);
+        width: 400px;
+        height: 320px;
+        text-align: center;
+        background: #fff;
+    }
+    
+    #popmenu p {
+        margin-top: 80px;
+    }
+    
+    .exit {
+        position: absolute;
+        left: 50%;
+        bottom: 10px;
+        transform: translate(-50%, 0);
+        width: 60px;
+        height: 30px;
+        text-align: center;
+        line-height: 30px;
+        background: #007AAE;
+        cursor: pointer;
+    }
+    /*본문내용*/
+    
+    #contents {
+        width: 200px;
+        height: 150px;
+        text-align: center;
+        margin: 20px;
+        line-height: 200px;
+        color: #fff;
+        background: #555;
+        cursor: pointer;
+    }
+</style>
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+
+<script>
+    $(document).ready(function() {
+        $("#contents").click(function() {
+            $("#popup").fadeIn();
+        });
+        $(".exit").click(function() {
+            $("#popup").fadeOut();
+        });
+    });
+
+    //]]>
+</script>
+
+<body>
+    <!--pop up-->
+    <div id="popup">
+        <div id="popmenu">
+            <p> 정말 안먹을거야...?
+                <img src="https://lh3.googleusercontent.com/2X2Evwyx5sKUsU1mYlo-DPRfgNoL2FWv_xFLveyfglY0VsqnJ5YLyt9u8yhkTQd2y2valiXybGszdkaja5wp7l3dH534CU1OnEv-oNrPuUV8AjIiqAAslUSGFXj5_TCYz3IFdRaDhjZUKl_VG8v6VTStsx3iXURXkn311ct0Nlq9A25PLAb_T3POxGkL2AykE_k9ZomA7x72djhldtHiCrBjddu-oEOeCGFU5w1mjzh0T7WFgWAWws6OR-r7D73zs_1rn4xZVlSx0QWkBcNPufZjQL5lszSsQ-mK0f9ca0MJWtL4OmtVsNq1J8DMWJmE7S2dfdx6-yNP9tkRweBzDBnKggQpHWMViLQIbkXhaK5qninf2MZmhwtvJ_yX9x7YOwcxY-Eu_FOYFCD5J5xpOpKrJd8P7bX6OKNGozH-Ucjyg8RIuJ2N7dm2ph69lyInhea-LK5E0UGjV9R18oqVGP-9Urq7C2NLwjnEolOKYV2wzZRwd8JaRNucAOmN4l-UsLhG7b_-If-6nBxGWpvPxszLDqykrqvsDCf-L4UdV8zqip1t-A79CTb5_zwFlE-LfVMHobZwatAJhZK_Q9oEvcKiMy8ln7O7rzvtamKcz2n_v-qOEljEFSXZZ8JzGaxQEx1uuJrkoY2ParZg1PoUecg1NGSaAyRf95gjNYj9pRvfSXrxki_nkYOJTK8bCIu-XbdpilhMxB15GqV0LHCxR2o=w319-h239-no?authuser=0">
+                <p><span style="color: #007AAE; padding-bottom: 50px">이렇게 맛있는데...? 정말...? 진짜...? 후회하지 않을까?
+                    </span></p>
+            </p>
+            <div class="exit"> 닫기
+            </div>
+        </div>
+    </div>
+    <!--contents-->
+    <div id="contents"> 다른음식 추천해줘
+    </div>
+</body>
+
+</html>
