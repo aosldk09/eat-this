@@ -3,36 +3,65 @@ let cloudsFood = ['설렁탕', '갈비탕', '감자탕', '국밥', '찌개'];
 let dustFood = ['삼겹살', '소곱창', '돈까스', '피자', '족발'];
 let clearFood = ['냉면', '비빔면', '냉모밀', '삼계탕', '물회'];
 let food = '';
+let todayWeather = 0;
 
 function chooseFood(weather) {
-    let rd = Math.floor(Math.random() * 5);
-    switch (weather) {
-        case 'Rain':
-            //rain이 맞으면
-            food = rainFood[rd];
+    todayWeather = weather
+    console.log(todayWeather)
+    let i = Math.floor(Math.random() * 5);
+    if (300<=todayWeather&&todayWeather<532) {
+        food = rainFood[i]
+        console.log(food)
+        console.log('비')
+        $('#food-js').append(food)
+    } else if (todayWeather==731 || todayWeather==761) {
+        food = dustFood[i];
+        console.log(food)
+        console.log('먼지')
+        $('#food-js').append(food)
+    } else if (800<=todayWeather&& todayWeather<803) {
+            food = clearFood[i];
             console.log(food)
+        console.log('맑음')
             $('#food-js').append(food)
-            break;
-        case 'Clouds':
-            //clouds가 맞으면
-            food = cloudsFood[rd];
+    } else if (803<=todayWeather&&todayWeather<805) {
+            food = cloudsFood[i];
             console.log(food)
+        console.log('구름')
             $('#food-js').append(food)
-            break;
-        case 'Dust':
-            //dust가 맞으면
-            food = dustFood[rd];
-            console.log(food)
-            $('#food-js').append(food)
-            break;
-        case 'Clear':
-            //clear가 맞으면
-            food = clearFood[rd];
-            console.log(food)
-            $('#food-js').append(food)
-            break;
+    } else {
+        alert('no weather')
     }
 }
+// function chooseFood(weather) {
+//     let rd = Math.floor(Math.random() * 5);
+//     switch (weather) {
+//         case 'Rain':
+//             //rain이 맞으면
+//             food = rainFood[rd];
+//             console.log(food)
+//             $('#food-js').append(food)
+//             break;
+//         case 'Clouds':
+//             //clouds가 맞으면
+//             food = cloudsFood[rd];
+//             console.log(food)
+//             $('#food-js').append(food)
+//             break;
+//         case 'Dust':
+//             //dust가 맞으면
+//             food = dustFood[rd];
+//             console.log(food)
+//             $('#food-js').append(food)
+//             break;
+//         case 'Clear':
+//             //clear가 맞으면
+//             food = clearFood[rd];
+//             console.log(food)
+//             $('#food-js').append(food)
+//             break;
+//     }
+// }
 
 // initialize
 async function initWeatherInfo(latitude, longitude) {
@@ -40,7 +69,7 @@ async function initWeatherInfo(latitude, longitude) {
     try {
         const response = await requestWeather(latitude, longitude)
         setWeather(response)
-        chooseFood(response.weather[0].main)
+        chooseFood(response.weather[0].id)
     } catch (err) {
         console.error(err)
     }
@@ -59,6 +88,7 @@ function requestWeather(latitude, longitude) {
             dataType: 'json',
             success: (response) => {
                 console.log('weatherInfo', response)
+                todayWeather = response.weather[0].id
                 resolve(response)
             },
             error: () => {
@@ -70,7 +100,7 @@ function requestWeather(latitude, longitude) {
 
 // 날씨 셋팅
 function setWeather(weatherInfo) {
-    $('#weather-js').append(weatherInfo.weather[0].main)
+    $('#weather-js').append(weatherInfo.weather[0].id)
     $('#temp-js').append(weatherInfo.main.temp)
     $('#cityname-js').append(weatherInfo.name)
 }
@@ -104,25 +134,26 @@ $(document).ready(function () {
 
 function showFood() {
     $.ajax({
-        type: 'GET',
-        url: '/api/list?sample_give=샘플데이터',
-        data: {},
-        success: function (response) {
-            let rcfood = response['recommended_food']
-            let i = Math.floor(Math.random() * 5);
-            let name = rcfood[i]['name']
-            let like = rcfood[i]['like']
-            let dislike = rcfood[i]['dislike']
-            let temp_html = `<a href="#" onClick="likeFood('${name}')"
-                               className="card-footer-item has-text-info">
-                위로!
-                <span className="icon">
-                                              <i className="fas fa-thumbs-up"></i>
-                            <div className="media-content">
-                            <a href="${url}" target="_blank" className="star-name title is-4">${name} (좋아요: ${like})</a>
-                            <p className="subtitle is-6">${dislike}</p>
-                        </div>`
-                        $('#food-box').append(temp_html)
+        "type": 'GET',
+        "url": '/api/food',
+        "data": {},
+        "success": function (response) {
+            let food = response['recommended_food']
+            console.log(food)
+            // let i = Math.floor(Math.random() * 5);
+            // let name = food[i]['name']
+            // let love = food[i]['love']
+            // let hate = food[i]['hate']
+            // let temp_html = `<a href="#" onClick="likeFood('${name}')"
+            //                    className="card-footer-item has-text-info">
+            //     위로!
+            //     <span className="icon">
+            //                                   <i className="fas fa-thumbs-up"></i>
+            //                 <div className="media-content">
+            //                 <a href="#" target="_blank" className="star-name title is-4">${name} (좋아요: ${love})</a>
+            //                 <p className="subtitle is-6">${hate}</p>
+            //             </div>`
+            //             $('#food-box').append(temp_html)
                     }
                 });
             }
