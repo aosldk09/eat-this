@@ -12,23 +12,25 @@ db = client.dbfood
 def home():
     return render_template('index.html')
 
+
 # API 역할을 하는 부분
 @app.route('/api/list', methods=['GET'])
 def show_food():
     food = list(db.dbfood.find({}, {'_id': False}))
     return jsonify({'recommended_food': food})
 
-@app.route('/api/like', methods=['POST'])
-def like_food():
+
+@app.route('/api/love', methods=['POST'])
+def love_food():
     name_receive = request.form['name_give']
     target_food = db.dbfood.find_one({'name': name_receive})
 
-    current_like = target_food['like']
-    new_like = current_like + 1
+    current_love = target_food['love']
+    new_love = current_love + 1
 
-    db.dbfood.update_one({'name': name_receive}, {'$set': {'like': new_like}})
+    db.dbfood.update_one({'name': name_receive}, {'$set': {'love': new_love}})
 
-    return jsonify({'msg': 'like 완료!'})
+    return jsonify({'msg': 'love 완료!'})
 
 
 db.dbfood.insert_one({'id': 1, 'name': '모둠전', 'weather': 'Rain', 'img': '', 'love': 0, 'hate': 0})
