@@ -20,7 +20,7 @@ def show_food():
     return jsonify({'recommended_food': food})
 
 
-@app.route('/api/love', methods=['POST'])
+@app.route('/api/post', methods=['POST'])
 def love_food():
     name_receive = request.form['name_give']
     target_food = db.dbfood.find_one({'name': name_receive})
@@ -32,6 +32,22 @@ def love_food():
 
     return jsonify({'msg': 'love 완료!'})
 
+#
+# @app.route('/api/post', methods=['POST'])
+# def Hate_food():
+#     name_receive = request.form['name_give']
+#     target_food = db.dbfood.find_one({'name': name_receive})
+#
+#     current_hate = target_food['love']
+#     new_hate = current_hate + 1
+#
+#     db.dbfood.update_one({'name': name_receive}, {'$set': {'hate': new_hate}})
+#
+#     return jsonify({'msg': 'hate 완료!'})
+
+
+if __name__ == '__main__':
+    app.run('0.0.0.0', port=5000, debug=True)
 
 db.dbfood.insert_one({'id': 1, 'name': '모둠전', 'weather': 'Rain', 'img': '', 'love': 0, 'hate': 0})
 db.dbfood.insert_one({'id': 2, 'name': '우동', 'weather': 'Rain', 'img': '', 'love': 0, 'hate': 0})

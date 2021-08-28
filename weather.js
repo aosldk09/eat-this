@@ -14,7 +14,7 @@ function chooseFood(weather) {
         console.log(food)
         console.log('비')
         $('#food-js').append(food)
-    } else if (todayWeather==731 || todayWeather==761) {
+    } else if (todayWeather===731 || todayWeather===761) {
         food = dustFood[i];
         console.log(food)
         console.log('먼지')
@@ -132,36 +132,29 @@ $(document).ready(function () {
     showFood();
 });
 
+
 function showFood() {
     $.ajax({
-        "type": 'GET',
-        "url": '/api/food',
-        "data": {},
-        "success": function (response) {
+        type: 'GET',
+        url: '/api/list',
+        data: {},
+        success: function (response) {
             let food = response['recommended_food']
-            console.log(food)
-            // let i = Math.floor(Math.random() * 5);
-            // let name = food[i]['name']
-            // let love = food[i]['love']
-            // let hate = food[i]['hate']
-            // let temp_html = `<a href="#" onClick="likeFood('${name}')"
-            //                    className="card-footer-item has-text-info">
-            //     위로!
-            //     <span className="icon">
-            //                                   <i className="fas fa-thumbs-up"></i>
-            //                 <div className="media-content">
-            //                 <a href="#" target="_blank" className="star-name title is-4">${name} (좋아요: ${love})</a>
-            //                 <p className="subtitle is-6">${hate}</p>
-            //             </div>`
-            //             $('#food-box').append(temp_html)
+            let i = Math.floor(Math.random() * 5);
+            let name = food[i]['name']
+            let love = food[i]['love']
+            let hate = food[i]['hate']
+            console.log(name)
+            console.log(love)
+            console.log(hate)
                     }
                 });
             }
 
-function likeFood(name) {
+function loveFood(name) {
                     $.ajax({
                         type: 'POST',
-                        url: '/api/like',
+                        url: '/api/love',
                         data: {name_give: name},
                         success: function (response) {
                             alert(response['food']);
