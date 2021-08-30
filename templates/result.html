@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+    <!-- favicon -->
+    <link rel="shortcut icon" href="../static/img/favicon.ico"/>
+    <link rel="apple-touch-icon-precomposed" href="../static/img/favicon.ico"/>
+
+    <!-- css -->
+    <link rel="stylesheet" href="../static/css/reset.css"/>
+    <link rel="stylesheet" href="../static/css/result.css"/>
+    <link rel="stylesheet" href="../static/css/loading.css"/>
+    <link rel="stylesheet" href="../static/css/slider.css"/>
+    <link rel="stylesheet" href="../static/css/likeit.css"/>
+
+    <!--font-->
+    <style>
+        @font-face {
+            font-family: "BMHANNAPro";
+            src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_seven@1.0/BMHANNAPro.woff") format("woff");
+            font-weight: normal;
+            font-style: normal;
+        }
+    </style>
+
+    <!-- kakaoShare -->
+    <script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
+    <script>
+        Kakao.init("3ced68a536df0029f0b788bc4129c883");
+        Kakao.isInitialized();
+    </script>
+
+    <!--JQuery-->
+    <script
+            src="https://code.jquery.com/jquery-3.6.0.min.js"
+            integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+            crossorigin="anonymous"
+    ></script>
+
+    <script type="text/javascript" src="../static/js/weather.js"></script>
+
+    <title>먹고 싶지?</title>
+</head>
+<body>
+<!-- Weather -->
+<!--{#-->
+<!--<div id="weather">#}-->
+<!--    {# |<span id="weather-js"></span> | <span id="temp-js"></span> |#}-->
+<!--    {# <span id="cityname-js"></span> | <span id="food-js"></span>#}-->
+<!--    {#-->
+<!--</div>-->
+<!--#}-->
+
+<!-- Title -->
+<h1 class="food_name" id="weather-js"></h1>
+
+<!-- slider -->
+<div id="slider_place">
+    <div class="slider">
+        <div class="slide active"><img id="img-box0"/></div>
+        <div class="slide"><img id="img-box1"/></div>
+        <div class="slide"><img id="img-box2"/></div>
+        <div class="slide"><img id="img-box3"/></div>
+        <div class="slide"><img id="img-box4"/></div>
+    </div>
+
+    <!-- controls -->
+    <div class="controls">
+        <div class="prev"><i class="fas fa-chevron-left"></i></div>
+        <div class="next"><i class="fas fa-chevron-right"></i></div>
+    </div>
+
+    <!-- indicators -->
+    <div class="indicator"></div>
+</div>
+
+<!-- Likeit -->
+<div class="likeit_layer">
+    <div class="likeit_list tasty">
+        <button class="likeit_list_btn" onclick="likeFood()" id="like_click">
+            <img src="../static/img/tasty.png">
+            <span class="likeit_list_text">오늘은 이거다!</span>
+            <span class="likeit_list_count">좋아요 : <span id="like-js"></span></span>
+        </button>
+    </div>
+    <div class="likeit_list bad">
+        <button class="likeit_list_btn" onclick="dislikeFood()">
+            <img src="../static/img/bad.png"/>
+            <span class="likeit_list_text">안땡겨요</span>
+            <span class="likeit_list_count">싫어요 : <span id="dislike-js"></span></span>
+        </button>
+    </div>
+</div>
+
+<!-- button -->
+<form class="result_btn">
+    <input
+            type="button"
+            class="btn restart"
+            value="다른 음식 추천 해주세요"
+            onclick=""
+    />
+    <input
+            type="button"
+            class="btn share"
+            value="공유하기"
+            onclick="js:kakaoShare()"
+    />
+</form>
+
+<!-- Loading Screen -->
+<div id="loading-screen">
+    <div class="circular-text">는 이게 먹고싶다 ~ 너는 이게 땡긴다 ~ 너</div>
+    <img src="../static/img/bangbang.png" class="rotate"/>
+</div>
+</body>
+
+<!-- JS -->
+{#
+<script src="../static/script.js"></script>
+#}
+<script
+        src="https://kit.fontawesome.com/6478f529f2.js"
+        crossorigin="anonymous"
+></script>
+<script src="../static/js/loading.js" charset="utf-8"></script>
+<script src="../static/js/slider.js" charset="utf-8"></script>
+<script src="../static/js/share.js" charset="utf-8"></script>
+<!--
+   <script src="js/weather.js"charset="utf-8"></script>
+ -->
+</html>
