@@ -1,0 +1,25 @@
+/*result page*/
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+  font-family: "BMHANNAPro";
+}
+
+body {
+  overflow-x: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.food_name {
+  font-size: 10vh;
+  margin-bottom: 2%;
+}
