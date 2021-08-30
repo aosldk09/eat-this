@@ -10,7 +10,7 @@ db.dbfood.delete_many({})
 db.dbfood.insert_one(
     {'id': 1, 'name': '모둠전', 'weather': 'Rain', 'img': '', 'like': 0, 'dislike': 0})
 db.dbfood.insert_one(
-    {'id': 2, 'name': '우동', 'weather': 'Rain', 'img': '', 'like': 0, 'dislike': 0})
+    {'id': 2, 'name': '불고기전골', 'weather': 'Rain', 'img': '', 'like': 0, 'dislike': 0})
 db.dbfood.insert_one(
     {'id': 3, 'name': '어묵탕', 'weather': 'Rain', 'img': '', 'like': 0, 'dislike': 0})
 db.dbfood.insert_one(
